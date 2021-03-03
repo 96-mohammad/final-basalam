@@ -4,7 +4,7 @@
   margin: 0;
   box-sizing: inherit;
   padding: 0; }
-
+*:focus { outline: none; }
 html {
   box-sizing: border-box; }
 
@@ -15,6 +15,11 @@ a {
   text-decoration: none;
   color: #fff; }
 
+button {
+  border: none;
+  font-family: IRANSans !important;
+  cursor: pointer;
+  background-color: #fff; } 
 .container {
   margin: 0 auto;
   width: 360px; }
@@ -26,6 +31,14 @@ a {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between; }
+  .header__card {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    background-color: #fff;
+    margin-top: 3px;
+  }
   .header__box {
     display: flex;
     align-items: center; }
@@ -97,6 +110,7 @@ a {
   left: 0; }
 
 .search {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -110,12 +124,12 @@ a {
     width: 95%;
     border: 1px solid #e5e5e5; }
   .search__btn {
-    position: relative; }
+      position: absolute;
+      left: 22px;
+      bottom: 9px; }
     .search__btn-icon {
       width: 15px;
-      position: absolute;
-      right: -30px;
-      top: -8px; }
+    }
 
 .btn-black {
   display: inline-block;
@@ -140,16 +154,16 @@ a {
       font-size: 14px;
       font-weight: 700; }
 
-.card {
-  margin-top: 5px;
+.card {  
   background-color: #fff; }
-  .card__heading {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    position: relative; }
-  .card__footer {
-    margin-top: 15px; }
+  .card__body { margin: 20px 0; }
+  .card__header {
+    padding: 20px 15px 0 15px; }
+    .card__header-p {
+      font-size: 14px;
+      color: #3E3E3E;
+    }  
+  .card__footer
     .card__footer-p {
       width: 85%;
       margin: 0 auto;
@@ -199,17 +213,9 @@ a {
         font-size: 12px;
         font-weight: 700;
         align-self: flex-end; }
-
-.body__shop {
-  margin-top: 10px;
-  padding: 15px; }
-  .body__shop-p {
-    font-size: 14px;
-    color: #3E3E3E; }
-
 .body__user {
   display: flex;
-  padding: 15px; }
+  padding: 0px 15px 15px 15px; }
   .body__user-img {
     margin-left: 10px;
     width: 40px;
@@ -236,7 +242,7 @@ a {
 .body__meal {
   display: flex;
   justify-content: space-around;
-  margin-top: 15px; }
+  }
   .body__meal-cap {
     align-self: flex-start;
     font-size: 12px;
@@ -253,9 +259,9 @@ a {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: 20px;
+  padding: 20px 0;
   border-bottom: 1px solid #eeee;
-  padding-bottom: 20px; }
+  }
   .body__count__del {
     width: 20px;
     height: 20px; }
@@ -263,10 +269,10 @@ a {
     display: flex;
     align-items: center; }
     .body__count__calc-num {
-      padding: 1px 7px;
+      padding: 0px 8px;
       border: 1px solid #eeee;
       border-radius: 8px;
-      margin: 0 10px; }
+      margin: -6px 10px 0 10px }
   .body__count__cap {
     display: flex;
     flex: 0 0 45%;
