@@ -9,7 +9,7 @@
     </head>
     <body>
         <div class="container">
-            <header class="header">
+            <header class="header">                
                 <div class="header__box">
                     <img class="header__logo" src="pic/Logo.png" alt="basalam logo">               
                     <h1 class="heading-one">باسلام</h1>                        
@@ -18,7 +18,7 @@
                 <nav class="header__nav">
                     <button class="btn-black"><a class="header__nav-link" href="#">فروش در باسلام</a></button>
                     <div class="header__nav-not">
-                        <img class="vector-2" src="pic/Vector.svg" alt="vector">
+                        <img class="header__nav-not-pic" src="pic/Vector.svg" alt="vector">
                         <span class="header__nav-not-number">۳</span>
                     </div>
                 </nav>  
@@ -52,13 +52,17 @@
                         <div class="body__meal">
                                 <img class="body__meal-img" src="pic/image 1.jpg" alt="meal image">
                                 <p class="body__meal-cap">سوسیس آلمانی پنیری</p>
-                                <p class="body__meal-price"><s style="color:#9d9d9d;">۸۵,۰۰۰</s> ۷۵,۰۰۰ تومان</p>
+                                <div class="body__meal-box">
+                                    <p class="body__meal-box-off"><s>۸۵,۰۰۰</s></p>                                    
+                                    <input class="body__meal-price" type="text" value="75,000" readonly>
+                                    <img class="card__box__price-pic" src="/pic/toman.svg" alt="price pic">
+                                </div>                                
                         </div>
                         <div class="body__count">
                             <div class="body__count__calc">
-                                <button class="plus-sign"><img src="pic/minus-2.svg" alt="plus-sign"></button> 
+                                <button class="minus-sign"><img src="pic/add.svg" alt="minus-sign"></button>                                 
                                 <div class="body__count__calc-num">۳</div>
-                                <button class="minus-sign"><img src="pic/add.svg" alt="minus-sign"></button>                             
+                                <button class="plus-sign"><img src="pic/minus-2.svg" alt="plus-sign"></button>                            
                             </div>                        
                             <button><img class="body__count__del" src="pic/delete.svg" alt="delete sign"></button>                         
                             <div class="body__count__cap">
@@ -70,13 +74,17 @@
                         <div class="body__meal">
                             <img class="body__meal-img" src="pic/meal 2.png" alt="meal image">
                             <p class="body__meal-cap">کالباس پنیری</p>
-                            <p class="body__meal-price"><s style="color:#9d9d9d;">۳۵,۰۰۰</s> ۱۵,۰۰۰ تومان</p>
+                            <div class="body__meal-box">
+                                <p class="body__meal-box-off"><s>۳۵,۰۰۰</s></p>
+                                <input class="body__meal-price" type="text" value="15,000" readonly>
+                                <img class="card__box__price-pic" src="/pic/toman.svg" alt="price pic">
+                            </div>                            
                         </div>
                         <div class="body__count">
                             <div class="body__count__calc">
-                                <button class="plus-sign"><img src="pic/minus-2.svg" alt="plus-sign"></button> 
+                                <button class="minus-sign"><img src="pic/add.svg" alt="minus-sign"></button>                                 
                                 <div class="body__count__calc-num">۱</div>
-                                <button class="minus-sign"><img src="pic/add.svg" alt="minus-sign"></button>                             
+                                <button class="plus-sign"><img src="pic/minus-2.svg" alt="plus-sign"></button>                            
                             </div>                        
                             <button><img class="body__count__del" src="pic/delete.svg" alt="delete sign"></button>                        
                             <div class="body__count__cap">
@@ -85,7 +93,7 @@
                         </div>
                     </div>                                                        
                     <div class="card__footer">
-                        <p class="card__footer-p">هورا! ارسال از این غرفه برای شما <span>رایگان شد.</span></p>
+                        <p class="card__footer-p">هورا! ارسال از این غرفه برای شما <span class="span-green">رایگان شد.</span></p>
                         <div class="card__footer__off">
                             <img src="pic/tikcet.svg" alt="tiket symbole">
                             <a class="card__footer__off-link" href="#">ثبت کد تخفیف غرفه</a>                            
@@ -94,7 +102,10 @@
                             <button class="btn-red"><a class="btn-red-link" href="#">ادامه خرید فقط از این غرفه</a></button>
                             <div class="card__box__price">
                                 <p class="card__box__price-p">جمع مبلغ برای ۲ کالا</p>
-                                <p class="card__box__price-num">۷۵,۰۰۰ تومان</p>
+                                <div class="card__box__price-box">
+                                    <p class="card__box__price-num">۷۵,۰۰۰</p>
+                                    <img class="card__box__price-pic" src="/pic/toman.svg" alt="price pic">
+                                </div>                                
                             </div>
                         </div>
                     </div>                                   
@@ -117,13 +128,17 @@
                         <div class="body__meal">
                                 <img class="body__meal-img" src="pic/image 1.jpg" alt="meal image">
                                 <p class="body__meal-cap">سوسیس آلمانی پنیری</p>
-                                <p class="body__meal-price"><s style="color:#9d9d9d;">۸۵,۰۰۰</s> ۶۱,۵۰۰ تومان</p>
+                                <div class="body__meal-box">
+                                    <p class="body__meal-box-off"><s>۸۵,۰۰۰</s></p>
+                                    <input class="body__meal-price" type="text" value="75,000" readonly>
+                                    <img class="card__box__price-pic" src="/pic/toman.svg" alt="price pic">
+                                </div>                                
                         </div>
                         <div class="body__count">
                             <div class="body__count__calc">
-                                <button class="plus-sign"><img src="pic/minus-2.svg" alt="minus sign"></button> 
+                                <button class="minus-sign"><img src="pic/add.svg" alt="add sign"></button>                                 
                                 <div class="body__count__calc-num">۱</div>
-                                <button class="minus-sign"><img src="pic/add.svg" alt="add sign"></button>                            
+                                <button class="plus-sign"><img src="pic/minus-2.svg" alt="minus sign"></button>                           
                             </div>                        
                             <button><img class="body__count__del" src="pic/delete.svg" alt="delete sign"></button>                        
                             <div class="body__count__cap">
@@ -132,12 +147,15 @@
                         </div>
                     </div>                   
                     <div class="card__footer">
-                        <p class="card__footer-p card__footer-p-edit">برای ارسال رایگان: <span>۴۵۰۰۰ تومان دیگه از این غرفه خرید کنید</span></p>                        
+                        <p class="card__footer-p card__footer-p-edit">برای ارسال رایگان: <span class="span-black">۴۵۰۰۰ تومان دیگه از این غرفه خرید کنید.</span></p>                        
                         <div class="card__box card__box-edit">
                             <button class="btn-red"><a class="btn-red-link" href="#">ادامه خرید فقط از این غرفه</a></button>
                             <div class="card__box__price">
                                 <p class="card__box__price-p">جمع مبلغ برای ۱ کالا</p>
-                                <p class="card__box__price-num">۶۱,۵۰۰ تومان</p>
+                                <div class="card__box__price-box">
+                                    <p class="card__box__price-num">۶۱,۵۰۰</p>
+                                    <img class="card__box__price-pic" src="/pic/toman.svg" alt="price pic">
+                                </div>                                
                             </div>
                         </div>
                     </div>                  
@@ -147,7 +165,10 @@
                     <button class="btn-red btn-red-big"><a class="btn-red-big-link" href="#">ادامه خرید از ۲ غرفه</a></button>
                     <div class="card__box__price">
                         <p class="card__box__price-p">مبلغ قابل پرداخت ۲ غرفه</p>
-                        <p class="card__box__price-num">۷۰,۰۰۰ تومان</p>
+                        <div class="card__box__price-box">
+                            <p class="card__box__price-num">۷۰,۰۰۰</p>
+                            <img class="card__box__price-pic" src="/pic/toman.svg" alt="price pic">
+                        </div>                         
                     </div>
                 </div>
             </main>

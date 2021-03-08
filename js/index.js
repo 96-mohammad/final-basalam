@@ -1,140 +1,261 @@
+//---------------------------------------------------------------------------------------------------
+const arrPlus = document.querySelectorAll('.plus-sign');
+const arrMinus = document.querySelectorAll('.minus-sign');
+const boxNumber = document.querySelectorAll('.body__count__calc-num');
+const navNumber = document.querySelector('.header__nav-not-number');
+const arrDel = document.querySelectorAll('.body__count__del');
+const arrPrice = document.querySelectorAll('.body__meal-price');
+const arrcalc = document.querySelectorAll('.card__box__price-num');
+//----------------------------------------------------------------------------------------------------
+changeNumber(boxNumber, arrPrice, arrcalc);
+changeDelBtn(arrDel, navNumber); 
 
-let arrPlus = document.querySelectorAll('.plus-sign');
-let arrMinus = document.querySelectorAll('.minus-sign');
-let boxNumber = document.querySelectorAll('.body__count__calc-num');
-let navNumber = document.querySelector('.header__nav-not-number');
+let manage = {};
+manage.sum = [0,0,0];
 
-let arr = Array.prototype.slice.call(arrPlus);
-let array = Array.prototype.slice.call(arrMinus);
-let list = Array.prototype.slice.call(boxNumber);
-
-function changeDom(list, nav) {
-    let sum, sum1, sum2, sum3;
+//----------------------------------------------------------------------------------------------------
+function changeNumber(list, price, calc) {    
+    let sum = [1, 1, 1], input = [], values = [], count = [], timer; 
     
-    sum1 = 1;
-    sum2 = 1;
-    sum3 = 1;
-    sum = sum1 + sum2 + sum3;
+    list.forEach((cur,index) => {
+        if (index === 0) {
+            cur.textContent = sum[0];
+        }
+        else if (index === 1) {
+            cur.textContent = sum[1];
+        }
+        else cur.textContent = sum[2];
+    });   
+      
+    price.forEach(cur => {
+        input.push(cur.value.split(','));        
+    });   
+    input.forEach(cur => {
+        values.push(parseInt(cur[0]));
+    });
+    
+    count = [...values];       
+    count.push(0);   
+      
+    calc[0].textContent = values[0] + values[1] + ',000';
+    calc[1].textContent = values[2] + ',000';
+    calc[2].textContent = values[0] + values[1] + values[2] + ',000';    
 
-    list[0].textContent = sum1;
-    list[1].textContent = sum2;
-    list[2].textContent = sum3;
-    nav.textContent = sum;
-
-    arr.forEach((cur,index) => {
+    arrPlus.forEach((cur,index) => {
+        if (index === 0) {
+            cur.addEventListener('click', () => {                
+                sum[0]++;
+                list[0].textContent = sum[0];            
+                count[0] = sum[0] * values[0];
+                manage.sum[0] = count[0]; 
+                calc[0].textContent = count[0] + count[1] + ',000';                 
+                calc[2].textContent =  count[0] + count[1] + count[2] + ',000';      
+            }); 
+            cur.addEventListener('mousedown', () => {
+                timer = setInterval(() => {
+                    sum[0]++;
+                    list[0].textContent = sum[0];            
+                    count[0] = sum[0] * values[0];
+                    manage.sum[0] = count[0]; 
+                    calc[0].textContent = count[0] + count[1] + ',000';
+                    calc[2].textContent =  count[0] + count[1] + count[2] + ',000';
+                },140);
+            });  
+            cur.addEventListener('mouseup', () => {
+                clearInterval(timer);
+            });           
+        }
+        else if (index === 1) {
+            cur.addEventListener('click', () => {                
+                    sum[1]++;
+                    list[1].textContent = sum[1];                
+                    count[1] = sum[1] * values[1]; 
+                    manage.sum[1] = count[1]; 
+                    calc[0].textContent = count[0] + count[1] + ',000';   
+                    calc[2].textContent =  count[0] + count[1] + count[2] + ',000';                  
+            });
+            cur.addEventListener('mousedown', () => {
+                timer = setInterval(() => {
+                    sum[1]++;
+                    list[1].textContent = sum[1];                
+                    count[1] = sum[1] * values[1];
+                    manage.sum[1] = count[1]; 
+                    calc[0].textContent = count[0] + count[1] + ',000';
+                    calc[2].textContent =  count[0] + count[1] + count[2] + ',000';
+                },140);
+            });  
+            cur.addEventListener('mouseup', () => {
+                clearInterval(timer);
+            }); 
+        }       
+        else {
+            cur.addEventListener('click', () => {
+                sum[2]++;
+                list[2].textContent = sum[2];  
+                count[2] = sum[2] * values[2];
+                manage.sum[2] = count[2]; 
+                calc[1].textContent = count[2] + ',000';  
+                calc[2].textContent = count[2] + count[0] + count[1] + ',000';  
+            }); 
+            cur.addEventListener('mousedown', () => {
+                timer = setInterval(() => {
+                    sum[2]++;
+                    list[2].textContent = sum[2];  
+                    count[2] = sum[2] * values[2];
+                    manage.sum[2] = count[2]; 
+                    calc[1].textContent = count[2] + ',000';
+                    calc[2].textContent = count[2] + count[0] + count[1] + ',000';
+                },140);
+            });  
+            cur.addEventListener('mouseup', () => {
+                clearInterval(timer);
+            }); 
+        }               
+    });
+    arrMinus.forEach((cur,index) => {
         if (index === 0) {
             cur.addEventListener('click', () => {
-            sum1++;
-            list[0].textContent = sum1;
-            sum = sum1 + sum2 + sum3;
-            nav.textContent = sum;
-            });        
+            sum[0]--;
+            if (sum[0] >= 1) {                
+                list[0].textContent = sum[0]; 
+                count[0] = sum[0] * values[0];
+                manage.sum[0] = count[0];
+                calc[0].textContent = count[0] + count[1] + ',000';
+                calc[2].textContent =  count[0] + count[1] + count[2] + ',000';
+            } else sum[0] = 1;
+            }); 
+            cur.addEventListener('mousedown', () => {
+                timer = setInterval(() => {
+                    sum[0]--;
+                    if (sum[0] >= 1) {                
+                        list[0].textContent = sum[0]; 
+                        count[0] = sum[0] * values[0];
+                        manage.sum[0] = count[0];
+                        calc[0].textContent = count[0] + count[1] + ',000';  
+                        calc[2].textContent =  count[0] + count[1] + count[2] + ',000';
+                    } else sum[0] = 1;
+                },140);
+            });  
+            cur.addEventListener('mouseup', () => {
+                clearInterval(timer);
+            });     
         }
         else if (index === 1) {
             cur.addEventListener('click', () => {
-                sum2++;
-                list[1].textContent = sum2;
-                sum = sum1 + sum2 + sum3;
-                nav.textContent = sum;
+                sum[1]--;
+                if (sum[1] >= 1) {                
+                    list[1].textContent = sum[1];  
+                    count[1] = sum[1] * values[1]; 
+                    manage.sum[1] = count[1];
+                    calc[0].textContent = count[0] + count[1] + ',000'; 
+                    calc[2].textContent =  count[0] + count[1] + count[2] + ',000';
+                } else sum[1] = 1;
+            });
+            cur.addEventListener('mousedown', () => {
+                timer = setInterval(() => {
+                    sum[1]--;
+                    if (sum[1] >= 1) {                
+                        list[1].textContent = sum[1];  
+                        count[1] = sum[1] * values[1]; 
+                        manage.sum[1] = count[1]; 
+                        calc[0].textContent = count[0] + count[1] + ',000'; 
+                        calc[2].textContent =  count[0] + count[1] + count[2] + ',000';
+                    } else sum[1] = 1;
+                },140);
+            });  
+            cur.addEventListener('mouseup', () => {
+                clearInterval(timer);
             });
         }
-        else cur.addEventListener('click', () => {
-                sum3++;
-                list[2].textContent = sum3;
-                sum = sum1 + sum2 + sum3;
-                nav.textContent = sum;
-        });
-    });
-
-    array.forEach((cur,index) => {
-        if (index === 0) {
+        else {
             cur.addEventListener('click', () => {
-            sum1--;
-            if (sum1 >= 1) {                
-                list[0].textContent = sum1; 
-                sum = sum1 + sum2 + sum3;
-                nav.textContent = sum;                
-            } else sum1 = 1;
-            });        
-        }
-        else if (index === 1) {
-            cur.addEventListener('click', () => {
-                sum2--;
-                if (sum2 >= 1) {                
-                    list[1].textContent = sum2; 
-                    sum = sum1 + sum2 + sum3;
-                    nav.textContent = sum;               
-                } else sum2 = 1;
+                sum[2]--;
+                if (sum[2] >= 1) {                
+                    list[2].textContent = sum[2];  
+                    count[2] = sum[2] * values[2];
+                    manage.sum[2] = count[2]; 
+                    calc[1].textContent = count[2] + ',000';  
+                    calc[2].textContent = count[2] + count[0] + count[1] + ',000';   
+                } else sum[2] = 1;
             });
-        }
-        else cur.addEventListener('click', () => {
-            sum3--;
-            if (sum3 >= 1) {                
-                list[2].textContent = sum3; 
-                sum = sum1 + sum2 + sum3;
-                nav.textContent = sum;               
-            } else sum3 = 1;
-        });
-    });
-};
+            cur.addEventListener('mousedown', () => {
+                timer = setInterval(() => {
+                    sum[2]--;
+                    if (sum[2] >= 1) {                
+                        list[2].textContent = sum[2];  
+                        count[2] = sum[2] * values[2];
+                        manage.sum[2] = count[2]; 
+                        calc[1].textContent = count[2] + ',000';
+                        calc[2].textContent = count[2] + count[0] + count[1] + ',000';
+                    } else sum[2] = 1;
+                },140);
+            });  
+            cur.addEventListener('mouseup', () => {
+                clearInterval(timer);
+            });
+        }               
+    });         
+}
+//----------------------------------------------------------------------------------------------------
+function changeDelBtn(list, nav) {
+    let state = {}, count = 3;
 
-changeDom(boxNumber, navNumber);
+    state.isDelete = false;
+    state.isFullDelete = false;    
+    nav.textContent = count;   
 
-/*
-function renderDom(arrPlus,arrMinus,list,navNumber) {    
-    let sum1 = 1;
-    let sum2 = 1;
-    let sum3 = 1;
-    let count = sum1 + sum2 + sum3;
+    list.forEach(cur => {           
+        cur.addEventListener('click', () => { 
+            if (count > 1) {       
+                count--;
+                nav.textContent = count;
+                cur.addEventListener('click', () => {                                  
+                    count--;
+                    nav.textContent = count;                                       
+                });  
+            }                     
+        });    
+    });
 
-    list[0].textContent = sum1;
-    list[1].textContent = sum2;
-    list[2].textContent = sum3;
-    navNumber.textContent = count;
-
-    arrPlus[0].addEventListener('click', () => {
-        sum1++;
-        list[0].textContent = sum1;
-        count = sum1 + sum2 + sum3;        
-        navNumber.textContent = count;
+    list[0].addEventListener('click', () => {
+        if (!state.isFullDelete) {
+            if (state.isDelete) {
+                let arr = document.querySelectorAll('.card');
+                arr[0].style.display = 'none';
+                state.isFullDelete = true;
+                manage.sum[0] = 0;
+            }
+        }           
+        if (!state.isDelete) {           
+            document.querySelector('.body__meal').style.display = 'none';
+            document.querySelector('.body__count').style.display = 'none'; 
+            document.querySelector('.card__body').style.marginBottom = '-20px';
+            state.isDelete = true;
+            manage.sum[0] = 0;
+        }             
     });
-    arrPlus[1].addEventListener('click', () => {
-        sum2++;
-        list[1].textContent = sum2;
-        count = sum1 + sum2 + sum3;
-        navNumber.textContent = count;
+    list[1].addEventListener('click', () => {
+        if (!state.isFullDelete) {
+            if (state.isDelete) {           
+                let arr = document.querySelectorAll('.card');
+                arr[0].style.display = 'none';  
+                state.isFullDelete = true;  
+                manage.sum[1] = 0;
+            } 
+        }         
+        if (!state.isDelete) {
+            let arr = document.querySelectorAll('.card__body');
+            arr[1].style.display = 'none';
+            state.isDelete = true;
+            manage.sum[1] = 0;
+        }         
     });
-    arrPlus[2].addEventListener('click', () => {
-        sum3++;
-        list[2].textContent = sum3;
-        count = sum1 + sum2 + sum3;
-        navNumber.textContent = count;    
-    });  
-    
-    arrMinus[0].addEventListener('click', () => {
-        sum1--;
-        if (sum1 >= 1) {
-        list[0].textContent = sum1;
-        count = sum1 + sum2 + sum3;
-        navNumber.textContent = count;
-        } else sum1 = 1;
+    list[2].addEventListener('click', () => {
+        if (!state.isFullDelete) {
+            let arr = document.querySelectorAll('.card');
+            arr[1].style.display = 'none';
+            state.isFullDelete = true;
+            manage.sum[2] = 0;
+        }              
     });
-    arrMinus[1].addEventListener('click', () => {
-        sum2--;
-        if (sum2 >= 1) {
-        list[1].textContent = sum2;
-        count = sum1 + sum2 + sum3;
-        navNumber.textContent = count;
-        } else sum2 = 1;
-    });
-    arrMinus[2].addEventListener('click', () => {
-        sum3--;
-        if (sum3 >= 1) {
-        list[2].textContent = sum3;
-        count = sum1 + sum2 + sum3;
-        navNumber.textContent = count;
-        } else sum3 = 1;
-    }); 
-    renderDom(arrPlus,arrMinus,boxNumber,navNumber);     
-};
-*/
+}

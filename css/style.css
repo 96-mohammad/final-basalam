@@ -30,7 +30,7 @@ button {
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; }
+  justify-content: space-between; }  
   .header__card {
     display: flex;
     align-items: center;
@@ -56,23 +56,27 @@ button {
     justify-content: space-evenly; }
     .header__nav-not {
       position: relative;
-      display: flex; }
+      display: flex;
+      cursor: pointer; }
       .header__nav-not-number {
-        height: 15px;
-        width: 15px;
-        font-size: 10px;
+        height: 17px;
+        width: 17px;
+        font-size: 11px;
         background-color: #ca0202;
         color: #FFFFFF;
         border-radius: 50%;
         position: absolute;
-        top: -4px;
-        right: 9px;
+        top: -2px;
+        right: 11px;
         display: flex;
         justify-content: center;
-        align-items: center; }
+        padding: 1px; }
+      .header__nav-not-pic {
+        width: 25px;
+        height: 25px;
+      }  
     .header__nav-link {
-      font-size: 12px;
-      font-style: italic; }
+      font-size: 12px; }
 
 .heading-one {
   font-size: 24px;
@@ -128,8 +132,7 @@ button {
       left: 22px;
       bottom: 9px; }
     .search__btn-icon {
-      width: 15px;
-    }
+      width: 15px; }
 
 .btn-black {
   display: inline-block;
@@ -174,9 +177,7 @@ button {
       background-color: #dff5f1;
       color: #00786c; }
       .card__footer-p-edit {
-        background-image: linear-gradient(to left, #dff5f1, #e5e5e5); }
-      .card__footer-p span {
-        font-weight: 700; }
+        background-image: linear-gradient(to left, #dff5f1, #e5e5e5); }      
     .card__footer__off {
       margin: 15px 25px;
       padding: 5px;
@@ -206,13 +207,22 @@ button {
       display: flex;
       flex-direction: column;
       color: #535353; }
+      .card__box__price-box {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
       .card__box__price-p {
         font-size: 12px;
         font-weight: 400; }
       .card__box__price-num {
         font-size: 12px;
         font-weight: 700;
-        align-self: flex-end; }
+        align-self: flex-end; 
+        padding-left: 3px;}
+      .card__box__price-pic {        
+        width: 20px;
+        height: 20px; }  
 .body__user {
   display: flex;
   padding: 0px 15px 15px 15px; }
@@ -249,11 +259,21 @@ button {
     font-weight: 400;
     color: #3E3E3E;
     flex: 0 0 30%; }
-  .body__meal-price {
-    align-self: flex-end;
+  .body__meal-price {  
+    width: 42%;
+    border: none;  
     font-size: 12px;
     font-weight: 400;
     color: #535353; }
+  .body__meal-box {
+    display: flex;
+    flex: 0 0 26%;
+    justify-content: space-around;
+    align-items: flex-end; }
+    .body__meal-box-off {
+      font-size: 12px;
+      padding-left: 3px;
+      color:#9d9d9d; }   
 
 .body__count {
   display: flex;
@@ -286,3 +306,8 @@ button {
 .empty {
   height: 120px;
   background-color: #e5e5e5; }
+.span-black {
+  font-weight: 400;
+  color: #282828; } 
+.span-green {
+  font-weight: 700; }   
