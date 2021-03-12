@@ -27,6 +27,7 @@ button {
 .header {
   background-color: #fff;
   height: 101px;
+  margin-bottom: 5px;
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -36,9 +37,7 @@ button {
     align-items: center;
     justify-content: space-around;
     position: relative;
-    background-color: #fff;
-    margin-top: 3px;
-  }
+    background-color: #fff; }
   .header__box {
     display: flex;
     align-items: center; }
@@ -157,16 +156,16 @@ button {
       font-size: 14px;
       font-weight: 700; }
 
-.card {  
+.card {    
   background-color: #fff; }
   .card__body { margin: 20px 0; }
   .card__header {
     padding: 20px 15px 0 15px; }
     .card__header-p {
       font-size: 14px;
-      color: #3E3E3E;
-    }  
-  .card__footer
+      color: #3E3E3E; }  
+  .card__footer {
+    margin-bottom: 10px; }
     .card__footer-p {
       width: 85%;
       margin: 0 auto;
@@ -193,7 +192,7 @@ button {
         text-decoration: none;
         font-size: 10px;
         font-weight: 700; }
-  .card__box {
+  .card__box {    
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -201,8 +200,17 @@ button {
     padding-bottom: 15px;
     margin-bottom: -5px; }
     .card__box-edit {
-      background-color: #fff;
-      padding-top: 15px; }
+      padding-top: 20px; }
+    .card__box__footer {
+      display: flex;
+      position: fixed;
+      align-items: center;
+      justify-content: space-around;  
+      padding: 15px 0; 
+      margin-bottom: -5px;      
+      width: inherit;
+      bottom: 0;
+      background-color: #fff; }    
     .card__box__price {
       display: flex;
       flex-direction: column;
@@ -210,8 +218,7 @@ button {
       .card__box__price-box {
         display: flex;
         align-items: center;
-        justify-content: flex-end;
-      }
+        justify-content: flex-end; }
       .card__box__price-p {
         font-size: 12px;
         font-weight: 400; }
@@ -219,10 +226,7 @@ button {
         font-size: 12px;
         font-weight: 700;
         align-self: flex-end; 
-        padding-left: 3px;}
-      .card__box__price-pic {        
-        width: 20px;
-        height: 20px; }  
+        padding-left: 3px; }       
 .body__user {
   display: flex;
   padding: 0px 15px 15px 15px; }
@@ -251,8 +255,7 @@ button {
 
 .body__meal {
   display: flex;
-  justify-content: space-around;
-  }
+  justify-content: space-around; }
   .body__meal-cap {
     align-self: flex-start;
     font-size: 12px;
@@ -274,14 +277,12 @@ button {
       font-size: 12px;
       padding-left: 3px;
       color:#9d9d9d; }   
-
 .body__count {
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 20px 0;
-  border-bottom: 1px solid #eeee;
-  }
+  border-bottom: 1px solid #eeee; }
   .body__count__del {
     width: 20px;
     height: 20px; }
@@ -302,12 +303,78 @@ button {
       font-weight: 700;
       color: #7d7d7d;
       border-bottom: 1px dashed #7d7d7d; }
-
 .empty {
-  height: 120px;
+  height: 140px;
   background-color: #e5e5e5; }
 .span-black {
   font-weight: 400;
   color: #282828; } 
 .span-green {
   font-weight: 700; }   
+.address {    
+  background-color: #fff; }
+  .address__header {
+    padding: 20px;   
+    display: flex;
+    justify-content: space-between; }  
+    .address__header__exp {
+      display: flex;
+      align-items: center; }
+      .address__header__exp-link {
+        height: 38px; }
+      .address__header__exp-img {
+        width: 40px;
+        height: 40px; }
+      .address__header__exp-p {
+        font-weight: 400;
+        font-size: 14px;
+        margin-right: 5px;
+        color: #3E3E3E; }
+  .address__header__btn {
+    display: flex;
+    align-items: center;
+    border: 1px solid #9d9d9d;
+    padding: 7px 17px;    
+    border-radius: 100px; }
+    .address__header__btn-p {
+      color: #3E3E3E;
+      margin-right: 5px;
+      font-size: 13px;
+      font-weight: 700; }
+.form__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px; }
+  .form__header-heading {
+    font-size: 12px;
+    font-weight: 400;
+    color: #3E3E3E;
+    margin-right: 50px; }
+  .form__header-img {
+    cursor: pointer;
+    width: 27px;
+    height: 27px;
+    margin-left: 20px; }    
+.form__select {
+  display: flex;
+  width: 90%;
+  padding: 20px;
+  border-bottom: 1px solid #eeee; }
+.form__lable {
+  position: relative;
+  font-size: 13px;
+  font-weight: 400;
+  color: #535353;
+  margin-top: -5px;
+  padding-right: 12px; }   
+.form__radio {  
+  width: 20px;
+  height: 16px;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 4.5px solid #DF3856; } 
+  .form__radio-edit {
+    width: 20px;
+    height: 13px;
+    border: 2px solid #9d9d9d; } 
